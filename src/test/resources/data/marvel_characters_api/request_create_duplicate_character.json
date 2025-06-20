@@ -1,0 +1,6 @@
+{
+  "name": "Duplicate Hero",
+  "alterego": "John Doe",
+  "description": "This character will cause a duplicate name error",
+  "powers": ["Duplication", "Error Generation"]
+}
