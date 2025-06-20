@@ -7,7 +7,6 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
-
 group 'com.example'
 version '1.0-SNAPSHOT'
 
@@ -16,14 +15,32 @@ repositories {
 }
 
 dependencies {
-    
-    testImplementation 'com.intuit.karate:karate-junit5:1.4.1',
-            "com.intuit.karate:karate-netty:0.9.2",
-            "com.intuit.karate:karate-apache:0.9.6",
-            "net.masterthought:cucumber-reporting:5.8.1",
-            'junit:junit:4.13.2'
+    // Asegúrate de usar versiones compatibles de Karate
+    testImplementation 'com.intuit.karate:karate-junit5:1.4.1'
+    testImplementation 'com.intuit.karate:karate-core:1.4.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+    testImplementation 'net.masterthought:cucumber-reporting:5.8.1'
+}
+
+sourceSets {
+    test {
+        resources {
+            // Incluir recursos de test de ambas ubicaciones
+            srcDirs = ['src/test/java', 'src/test/resources']
+        }
+    }
 }
 
 test {
     useJUnitPlatform()
+    // Configuración para mostrar el resultado de los tests en la consola
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = true
+    }
+    // Configuración para generar informes de Karate
+    systemProperty "karate.options", System.properties.getProperty("karate.options")
+    systemProperty "karate.env", System.properties.getProperty("karate.env", "local")
+    outputs.upToDateWhen { false }
 }

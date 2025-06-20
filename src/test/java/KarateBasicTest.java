@@ -14,29 +14,6 @@ class KarateBasicTest {
     @Karate.Test
     Karate testMasterFeature() {
         // Ejecutar el feature principal que llama a todos los demás
-        return Karate.run("classpath:karate-test.feature");
+        return Karate.run("classpath:karate-test.feature").relativeTo(getClass());
     }
-    
-    // Tests individuales por funcionalidad (comentados para evitar ejecuciones duplicadas)
-    /* 
-    @Karate.Test
-    Karate testObtenerPersonajes() {
-        return Karate.run("classpath:com/pichincha/features/marvel_characters_api/obtenerPersonajes.feature");
-    }
-    
-    @Karate.Test
-    Karate testCrearPersonajes() {
-        return Karate.run("classpath:com/pichincha/features/marvel_characters_api/crearPersonajes.feature");
-    }
-    
-    @Karate.Test
-    Karate testActualizarPersonajes() {
-        return Karate.run("classpath:com/pichincha/features/marvel_characters_api/actualizarPersonajes.feature");
-    }
-    
-    @Karate.Test
-    Karate testEliminarPersonajes() {
-        return Karate.run("classpath:com/pichincha/features/marvel_characters_api/eliminarPersonajes.feature");
-    }
-    */
 }
