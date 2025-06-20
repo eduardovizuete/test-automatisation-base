@@ -17,7 +17,8 @@ class KarateBasicTest {
         return Karate.run("classpath:karate-test.feature");
     }
     
-    // Tests individuales por funcionalidad
+    // Tests individuales por funcionalidad (comentados para evitar ejecuciones duplicadas)
+    /* 
     @Karate.Test
     Karate testObtenerPersonajes() {
         return Karate.run("classpath:com/pichincha/features/marvel_characters_api/obtenerPersonajes.feature");
@@ -37,4 +38,5 @@ class KarateBasicTest {
     Karate testEliminarPersonajes() {
         return Karate.run("classpath:com/pichincha/features/marvel_characters_api/eliminarPersonajes.feature");
     }
+    */
 }
