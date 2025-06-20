@@ -32,6 +32,11 @@ sourceSets {
     }
 }
 
+// Configurar estrategia para manejar archivos duplicados
+tasks.withType(ProcessResources) {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
 test {
     useJUnitPlatform()
     // Configuración para mostrar el resultado de los tests en la consola
